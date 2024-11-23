@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_sample/view/home_screen/home_screen.dart';
 import 'package:shared_sample/view/login_screen/login_screen.dart';
 
+
 class SplashScreen extends StatefulWidget{
   const SplashScreen({super.key});
 
@@ -24,10 +25,10 @@ class _SplashScreenState extends State<SplashScreen> {
                await SharedPreferences.getInstance();
                final bool isLogged = prefs.getBool('isLogged')?? false;
                if(isLogged){
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                }
                else{
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
                }
     });
   }
@@ -40,9 +41,9 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Text("SPLASH SCREEN",
         style: TextStyle(
-          color: Colors.red,
+          color: Colors.black,
           fontWeight: FontWeight.bold,
-          fontSize: 20,
+          fontSize: 30,
         ),),
       ),
     );
